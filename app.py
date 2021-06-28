@@ -33,7 +33,7 @@ data = r.json()
 df = pd.DataFrame(data)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
   return render_template('index.html')
 
