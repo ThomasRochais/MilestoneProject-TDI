@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect
-import numpy as np
-from bokeh.embed import components
+# import numpy as np
+# from bokeh.embed import components
 # Pulling the stock data
-import pandas as pd
+# import pandas as pd
 # from dotenv import load_dotenv
 # import os
 
