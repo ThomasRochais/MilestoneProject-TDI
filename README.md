@@ -1,45 +1,34 @@
-# Python: Getting Started
+# Flask on Heroku
 
-A barebones Django app, which can easily be deployed to Heroku.
+This project is intended to help you tie together some important concepts and
+technologies from the 12-day course, including Git, Flask, JSON, Pandas,
+Requests, Heroku, and Bokeh for visualization.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+The repository contains a basic template for a Flask configuration that will
+work on Heroku.
 
-## Running Locally
+A [finished example](https://lemurian.herokuapp.com) that demonstrates some basic functionality.
 
-Make sure you have Python 3.9 [installed locally](https://docs.python-guide.org/starting/installation/). To push to Heroku, you'll need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), as well as [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+## Step 1: Setup and deploy
+- Git clone the existing template repository.
+- `Procfile`, `requirements.txt`, `conda-requirements.txt`, and `runtime.txt`
+  contain some default settings.
+- There is some boilerplate HTML in `templates/`
+- Create Heroku application with `heroku create <app_name>` or leave blank to
+  auto-generate a name.
+- Deploy to Heroku: `git push heroku master`
+- You should be able to see your site at `https://<app_name>.herokuapp.com`
+- A useful reference is the Heroku [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python).
 
-```sh
-$ git clone https://github.com/heroku/python-getting-started.git
-$ cd python-getting-started
+## Step 2: Get data from API and put it in pandas
+- Use the `requests` library to grab some data from a public API. This will
+  often be in JSON format, in which case `simplejson` will be useful.
+- Build in some interactivity by having the user submit a form which determines which data is requested.
+- Create a `pandas` dataframe with the data.
 
-$ python3 -m venv getting-started
-$ pip install -r requirements.txt
-
-$ createdb python_getting_started
-
-$ python manage.py migrate
-$ python manage.py collectstatic
-
-$ heroku local
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku main
-
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+## Step 3: Use Bokeh to plot pandas data
+- Create a Bokeh plot from the dataframe.
+- Consult the Bokeh [documentation](http://bokeh.pydata.org/en/latest/docs/user_guide/embed.html)
+  and [examples](https://github.com/bokeh/bokeh/tree/master/examples/embed).
+- Make the plot visible on your website through embedded HTML or other methods - this is where Flask comes in to manage the interactivity and display the desired content.
+- Some good references for Flask: [This article](https://realpython.com/blog/python/python-web-applications-with-flask-part-i/), especially the links in "Starting off", and [this tutorial](https://github.com/bev-a-tron/MyFlaskTutorial).
