@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-# import numpy as np
+import numpy as np
 # from bokeh.embed import components
 # Pulling the stock data
 # import pandas as pd
